@@ -26,13 +26,13 @@ def get_goa_authority(keydir=home):
         with open(keyfile) as f:
             arch_session = f.read()
     except Exception as exc:
-        print('Error reading {}'.format(keyfile))
+        print('get_goa_authority: error reading {}'.format(keyfile))
         raise exc
 
     return arch_session
 
 
-def goa_json(user_request, option='jsonfilelist'):
+def goa_json(user_request, option='jsonfilelist', verbose=False):
     """
     Query one of the GOA json APIs
 
@@ -46,7 +46,7 @@ def goa_json(user_request, option='jsonfilelist'):
 
     options = ['jsonfilelist', 'jsonsummary']
     if option not in options:
-        print('Option must be one of {}'.format(options))
+        print('goa_json: option must be one of {}'.format(options))
         raise ValueError('Option must be one of {}'.format(options))
         
     response = requests.get(
@@ -55,18 +55,19 @@ def goa_json(user_request, option='jsonfilelist'):
     try:
         response.raise_for_status()
     except requests.exceptions.HTTPError as exc:
-        print('Request failed: {}'.format(response.text))
+        print('goa_json: request failed: {}'.format(response.text))
         raise exc
     else:
         request_json = response.json()
 
-    # print(response.url)
+    if verbose:
+        print(response.url)
     # print(response.text)
 
     return request_json
 
 
-def goa_calmgr(user_request):
+def goa_calmgr(user_request, verbose=False):
     """
     Query the GOA galmgr API
 
@@ -83,18 +84,19 @@ def goa_calmgr(user_request):
     try:
         response.raise_for_status()
     except requests.exceptions.HTTPError as exc:
-        print('Request failed: {}'.format(response.text))
+        print('goa_calmgr: request failed: {}'.format(response.text))
         raise exc
     else:
         request_xml = response.content
 
-    # print(response.url)
+    if verbose:
+        print(response.url)
     # print(response.text)
 
     return request_xml
 
 
-def goa_file(user_request, filedir='./', tarfile='', option='file', cookie=''):
+def goa_file(user_request, filedir='./', tarfile='', option='file', cookie='', verbose=False):
     """
     Query the GOA to download a FITS file, TAR files, or preview PNG.
 
@@ -111,7 +113,7 @@ def goa_file(user_request, filedir='./', tarfile='', option='file', cookie=''):
 
     options = ['file', 'preview', 'download']
     if option not in options:
-        print('Option must be one of {}'.format(options))
+        print('goa:file: option must be one of {}'.format(options))
         raise ValueError('Option must be one of {}'.format(options))
 
     l_user_request = user_request
@@ -136,13 +138,14 @@ def goa_file(user_request, filedir='./', tarfile='', option='file', cookie=''):
     try:
         response.raise_for_status()
     except requests.exceptions.HTTPError as exc:
-        print('Request failed: {}'.format(response.text))
+        print('goa_file: request failed: {}'.format(response.text))
         raise exc
     else:
         with open(filedir + filename, 'wb') as fd:
             for chunk in response.iter_content(chunk_size=128):
                 fd.write(chunk)
 
-    # print(response.url)
+    if verbose:
+        print(response.url)
 
     return filename
