@@ -8,11 +8,11 @@ the requests package. This is compatible with both Python 2.7 and Python 3.6+.
 Then install the library by downloading and unpacking the zip
 file or use git,
 
-git clone https://github.com/bryanmiller/pygoa.git
+    git clone https://github.com/bryanmiller/pygoa.git
 
 or pip
 
-pip install pygoa
+    pip install pygoa
 
 ## Authentication
 
