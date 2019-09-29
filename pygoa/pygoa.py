@@ -1,6 +1,6 @@
 # Python library for communicating with the Gemini Observatory Archive (GOA) using requests
 # Bryan Miller
-# 2019-sep-17
+# Created 2019-sep-17
 
 from __future__ import print_function
 import requests
@@ -11,7 +11,7 @@ home = os.environ['HOME']
 
 def get_goa_authority(keydir=home):
     """
-    Read the GOA authentication cookie stored in a a hidden file
+    Read the GOA authentication cookie stored in a a hidden file so that it is not embedded in code
 
     Parameters
         keydir:    Directory for authentication file, defaults to the home directory
