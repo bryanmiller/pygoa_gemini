@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='pygoa',
-    version='0.1.0',
+    version='1.0.0',
     author="Bryan Miller",
     author_email="millerwbryan@gmail.com",
     description="A simple python library for working with the Gemini Observatory Archive APIs",
