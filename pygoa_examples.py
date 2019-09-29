@@ -3,6 +3,7 @@
 # Examples of using pygoa to use the Gemini Observatory Archive APIs
 # Bryan Miller
 
+from __future__ import print_function
 import pygoa.pygoa as pygoa
 import os
 import xml.etree.cElementTree as ElementTree
@@ -142,7 +143,7 @@ if __name__ == "__main__":
     # As specified, this is a 3.36 GB download
     # try:
     #     file = pygoa.goa_file('/associated_calibrations/' + query,
-    #                           filedir=home + '/Downloads/', tarfile='gnQ22_std_20101231.tar',
+    #                           filedir=home + '/Downloads/', tarfile='gnQ22_cal_20101231.tar',
     #                           option='download', cookie=goa_auth)
     # except (ValueError, Exception):
     #     pass
