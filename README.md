@@ -1,4 +1,4 @@
-# pygoa
+# pygoa_gemini
 A simple python library for working with the [Gemini Observatory Archive (GOA) APIs](https://archive.gemini.edu/help/api.html)
 
 ## Installation
@@ -8,11 +8,11 @@ the requests package. This is compatible with both Python 2.7 and Python 3.6+.
 Then install the library by downloading and unpacking the zip
 file or use git,
 
-    git clone https://github.com/bryanmiller/pygoa.git
+    git clone https://github.com/bryanmiller/pygoa_gemini.git
 
 or pip
 
-    pip install pygoa
+    pip install pygoa-gemini
 
 ## Authentication
 
