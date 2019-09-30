@@ -1,1 +1,1 @@
-name = "pygoa"
+name = "pygoa_gemini"

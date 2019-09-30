@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='pygoa',
+    name='pygoa-gemini',
     version='1.0.0',
     author="Bryan Miller",
     author_email="millerwbryan@gmail.com",
